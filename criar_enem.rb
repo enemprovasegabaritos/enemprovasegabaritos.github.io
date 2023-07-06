@@ -28,7 +28,7 @@ puts 'Digite a edição do enem que deseja criar: '
 edition = gets.chomp
 
 puts 'Digite o link da primeira prova: '
-link_prova_um = gets.chomp.sub(/\/view.*/, '/preview')
+link_prova_um = gets.chomp.sub(/\/view.*/, '/preview').sub(/\?.*/, '')
 
 puts 'Existe uma segunda prova? (y/n)'
 prova_dois = gets.chomp
@@ -40,15 +40,15 @@ end
 
 if prova_dois.downcase == 'y'
   puts 'Digite o link da segunda prova: '
-  link_prova_dois = gets.chomp.sub(/\/view.*/, '/preview')
+  link_prova_dois = gets.chomp.sub(/\/view.*/, '/preview').sub(/\?.*/, '')
 end
 
 puts 'Digite o link do primeiro gabarito: '
-link_gabarito_um = gets.chomp.sub(/\/view.*/, '/preview')
+link_gabarito_um = gets.chomp.sub(/\/view.*/, '/preview').sub(/\?.*/, '')
 
 if prova_dois.downcase == 'y'
   puts 'Digite o link do segundo gabarito: '
-  link_gabarito_dois = gets.chomp.sub(/\/view.*/, '/preview')
+  link_gabarito_dois = gets.chomp.sub(/\/view.*/, '/preview').sub(/\?.*/, '')
 end
 
 

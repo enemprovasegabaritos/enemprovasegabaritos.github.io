@@ -53,18 +53,57 @@
   
     <div class="row" style="max-width: 100% !important; margin-left: 0px !important; margin-right: 0px !important; padding-bottom: 70px !important;">
       <div class="col-6 mt-3 mb-3 text-center">
-        <a href="2003/index.html" class="btn btn-lg btn-outline-dark btn-light p-2" style="min-width: 90%; white-space: nowrap;">2003</a>
+        <form class="button_to" method="get" action="1/index.html">
+          <button class="btn btn-lg btn-outline-dark btn-light btn-download p-2 mb-2" style="min-width: 90%;" disabled="disabled" type="submit">
+            <span style="font-size: 1rem; white-space: nowrap;">PROVA 1º DIA</span>
+          </button>
+        </form>
       </div>
-      <div class="col-6 mt-3 mb-3 text-center">
-        <a href="2002/index.html" class="btn btn-lg btn-outline-dark btn-light p-2" style="min-width: 90%; white-space: nowrap;">2002</a>
-      </div>
-      <div class="col-6 mt-3 mb-3 text-center">
-        <a href="2001/index.html" class="btn btn-lg btn-outline-dark btn-light p-2" style="min-width: 90%; white-space: nowrap;">2001</a>
+
+      <div class="col-12 mb-3 text-center">
+        <h3 id="ad-download-notice">Para liberar o PDF clique na propaganda abaixo ou aguarde <span id="timer"></span>!</h3>
       </div>
     </div>
+              
+    <script>
+      var monitor = setInterval(function(){
+        var elem = document.activeElement;
+        if(elem && elem.tagName == 'IFRAME'){
+          clearInterval(monitor);
+          $("#ads2 a").each(function() {
+            this.click()
+          });
+          $( "#ad-download-notice" ).delay(1000).fadeOut("slow", function() {
+            $('.btn-download').attr("disabled", false);
+          });
+        }
+      }, 100);
+
+      function delay(milliseconds){
+        return new Promise(resolve => {
+          setTimeout(resolve, milliseconds);
+        });
+      }
+
+      window.onload = async function () {
+        let duration = 20;
+        while(duration > 0){
+          text = duration < 10 ? ("0" + duration.toString() + " segundos") : (duration.toString() + " segundos");
+          document.querySelector('#timer').textContent = text;
+          await delay(1000);
+          duration -= 1;
+        }
+        document.querySelector('#timer').textContent = "0 segundos";
+        $( "#ad-download-notice" ).delay(1000).fadeOut("slow", function() {
+          $('.btn-download').attr("disabled", false);
+        });
+      };
+    </script>
   </body>
   
   <footer class="text-center w-100 bg-black" style="position: fixed; bottom: 0;">
+    <a href="../index.html" class="btn btn-lg btn-outline-dark btn-light p-2 w-100 mb-2" style="min-width: 100%; white-space: nowrap;"><i class="fas fa-arrow-left"></i> Voltar</a>
+
     <div class="text-center w-100 bg-black">
       <div id="ads" style="max-width: 100vw; max-height: 70px; overflow: auto;">
         <script type="text/javascript">
