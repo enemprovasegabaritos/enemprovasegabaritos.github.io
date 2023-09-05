@@ -36,15 +36,13 @@
     </style>
     <script>
       function setCookie(cname,cvalue,exdays) {
-        let expires;
-        if (exdays == 0) {
-          expires = "expires=" + getCookie("expirationDate");
-        } else {
-          const d = new Date();
-          d.setTime(d.getTime() + (exdays*24*60*60*1000));
-          expires = "expires=" + d.toUTCString();
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires=" + d.toUTCString();
+        if (cname == "expirationDate") {
+          cvalue = d.toUTCString();
         }
-        document.cookie = cname + "=" + cvalue + ";" + " expirationDate=" + expires + ";" + expires + ";path=/";
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
       }
       
       function getCookie(cname) {
@@ -67,10 +65,12 @@
         let limit = getCookie("limit");
         if (limit == "1") {
           setCookie("limit", "2", 0);
+          setCookie("expirationDate", "", 0);
         } else if (limit == "2") {
           window.location.href = "https://enemprovasegabaritos.github.io/buy.html";
         } else {
           setCookie("limit", "1", 1);
+          setCookie("expirationDate", "", 0);
         }
       }
     </script>
