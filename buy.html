@@ -34,57 +34,40 @@
         }
       }
     </style>
-    <script>
-      function setCookie(cname,cvalue,exdays) {
-        let expires;
-        if (exdays == 0) {
-          expires = "expires=" + getCookie(expires);
-        } else {
-          const d = new Date();
-          d.setTime(d.getTime() + (exdays*24*60*60*1000));
-          expires = "expires=" + d.toUTCString();
-        }
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-      }
-      
-      function getCookie(cname) {
-        let name = cname + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(';');
-        for(let i = 0; i < ca.length; i++) {
-          let c = ca[i];
-          while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-          }
-          if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-          }
-        }
-        return "";
-      }
-      
-      function checkCookie() {
-        let limit = getCookie("limit");
-        if (limit == "1") {
-          setCookie("limit", "2", 0);
-        } else if (limit == "2") {
-          window.location.href = "https://enemprovasegabaritos.github.io/buy.html";
-        } else {
-          setCookie("limit", "1", 1);
-        }
-      }
-    </script>
   </head>
 
-  <body onload="checkCookie()">
-    <div class="w-100 h-100" style="max-width: 100% !important; margin-left: 0px !important; margin-right: 0px !important; padding-bottom: 67px !important;">
-      <iframe src="https://drive.google.com/file/d/1P0sOKGsvIjzg310sAnUa2FBCvD31sQVE/preview" style="height: 100%; width: 100%;"></iframe>
+  <body>
+    <div class="text-center">
+      <a href="https://enemprovasegabaritos.github.io" class="btn btn-outline-dark btn-light mb-2 w-100">
+        <h1 class="text-center mt-3">ENEM</h1>
+        <h4 class="text-center mb-3">PROVAS E GABARITOS</h4>
+      </a>
+    </div>
+  
+    <div class="row" style="max-width: 100% !important; margin-left: 0px !important; margin-right: 0px !important; padding-bottom: 60px !important;">
+      <div class="col-12 mt-3 mb-5 text-center">
+        <div class="card">
+          <h5 class="card-header">LIMITE DE 24 HORAS ATINGIDO</h5>
+          <div class="card-body">
+            <p class="card-text">Você atingiu o limite diário de acessos às provas e gabaritos!</p>
+            <p class="card-text">O limite gratuito são de 2 acessos em 24 horas.</p>
+            <p class="card-text">Ajude a manter o app online!</p>
+            <p class="card-text">Compre a versão paga e acesse as provas e gabaritos com explicações sem limite!</p>
+            <p class="card-text">Nossos gabaritos, além das respostas, possuem a resolução explicada para cada questão, assim sendo um ótimo aliado ao estudo para se preparar para o ENEM!</p>
+
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-12 mt-5 mb-3 text-center">
+        <a href="https://play.google.com/store/apps/details?id=com.InstaApps.ENEMProvaseGabaritosComentadosVIP" class="btn btn-lg btn-outline-dark btn-light p-2" style="min-width: 90%; white-space: nowrap; max-width: 100%; overflow: auto; font-size: 18px; font-weight: 500;">
+          COMPRAR APP SEM LIMITES<br/>POR APENAS R$2,99
+        </a>
+      </div>
     </div>
   </body>
   
   <footer class="text-center w-100 bg-black" style="position: fixed; bottom: 0;">
-    <a href="../index.html" class="btn btn-lg btn-outline-dark btn-light p-2 w-100 mb-2" style="min-width: 100%; white-space: nowrap;"><i class="fas fa-arrow-left"></i> Voltar</a>
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVY1992VDQ"></script>
     <script>
