@@ -33,6 +33,11 @@
           background-position: 0% 50%;
         }
       }
+      
+      .blur {
+        -webkit-filter: blur(6px);
+        filter: blur(6px);
+      }
     </style>
     <script>
       function setCookie(cname,cvalue,exdays) {
@@ -73,11 +78,13 @@
       function checkCookie() {
         let limit = getCookie("limit");
         if (limit == "1") {
+          $("#content").removeClass("blur");
           setCookie("limit", "2", 1);
           setCookie("expirationDate", "", 1);
         } else if (limit == "2") {
           window.location.href = "https://enemprovasegabaritos.github.io/buy.html";
         } else {
+          $("#content").removeClass("blur");
           setCookie("limit", "1", 1);
           setCookie("expirationDate", "", 1);
         }
@@ -86,7 +93,7 @@
   </head>
 
   <body onload="checkCookie()">
-    <div class="w-100 h-100" style="max-width: 100% !important; margin-left: 0px !important; margin-right: 0px !important; padding-bottom: 67px !important;">
+    <div id="content" class="blur w-100 h-100" style="max-width: 100% !important; margin-left: 0px !important; margin-right: 0px !important; padding-bottom: 67px !important;">
       <iframe src="https://drive.google.com/file/d/1-fjjaH2YcvMAyXLOSWhrLfgs7Ksm19qe/preview" style="height: 100%; width: 100%;"></iframe>
     </div>
   </body>
