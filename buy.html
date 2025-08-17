@@ -75,7 +75,7 @@
         setTimeout(() => {
           setCookie("rated", "1", 365);
           setCookie("expirationDate", "", 1);
-          setCookie("limit", "0", 1);
+          setCookie("limit", "1", 1);
           setTimeout(() => {
             window.location.href = "https://enemprovasegabaritos.github.io/years/index.html";
           }, 1000);
@@ -93,7 +93,7 @@
           });
           let rated = getCookie("rated");
           if (rated == "") {
-            $('#rate').html('<a href="https://play.google.com/store/apps/details?id=com.InstaApps.ENEMProvaseGabaritosComentados" target="_blank" onclick="setRateCookie()">AVALIE NOSSO APP EM 5 ESTRELAS E GANHE MAIS 2 ACESSOS GRATUITOS!</a>');
+            $('#rate').html('<a href="https://play.google.com/store/apps/details?id=com.InstaApps.ENEMProvaseGabaritosComentados" target="_blank" onclick="setRateCookie()">AVALIE NOSSO APP EM 5 ESTRELAS E GANHE MAIS 1 ACESSO GRATUITO!</a>');
           }
         } else {
           window.location.href = "https://enemprovasegabaritos.github.io/";
