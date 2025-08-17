@@ -53,14 +53,12 @@
       }
 
       function setRateCookie() {
+        setCookie("rated", "1", 365);
+        setCookie("expirationDate", "", 1);
+        setCookie("limit", "0", 1);
         setTimeout(() => {
-          setCookie("rated", "1", 365);
-          setCookie("expirationDate", "", 1);
-          setCookie("limit", "0", 1);
-          setTimeout(() => {
-            window.location.href = "https://enemprovasegabaritos.github.io/years/index.html";
-          }, 1000);
-        }, 3000);
+          window.location.href = "https://enemprovasegabaritos.github.io/years/index.html";
+        }, 1000);
       }
       
       function checkCookie() {
